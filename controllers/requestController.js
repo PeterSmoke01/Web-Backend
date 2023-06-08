@@ -54,10 +54,9 @@ export const getSingleRequest = async (req, res) => {
 //Product post to collection products
 export const postProduct = async (req, res) => {
   try {
-    const { name, quantity, category } = req.body;
+    const { name, category } = req.body;
     const newProduct = await productModel.create({
       name,
-      quantity,
       category,
     });
     await newProduct.save();
@@ -66,8 +65,6 @@ export const postProduct = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-//delete request from collection requests
 
 //delete request product from user
 export const deleterequest = async (req, res) => {
